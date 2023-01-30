@@ -4,9 +4,9 @@ output:
     variant: gfm
 ---
 
-![runiverse-name example badge](https://ices-tools-prod.r-universe.dev/badges/:name)
-![runiverse-package example badge for gert package](https://ices-tools-prod.r-universe.dev/badges/icesSAS)
-![cran-badge example for gert package](http://www.r-pkg.org/badges/version/icesSAS)
+[![runiverse-name example badge](https://ices-tools-prod.r-universe.dev/badges/:name)](https://ices-tools-prod.r-universe.dev/builds)
+[![runiverse-package example badge for gert package](https://ices-tools-prod.r-universe.dev/badges/icesSAS)](https://ices-tools-prod.r-universe.dev/icesSAS)
+[![cran-badge example for gert package](http://www.r-pkg.org/badges/version/icesSAS)](https://CRAN.R-project.org/package=icesSAS)
 [![License](https://img.shields.io/badge/license-GPL%20(%3E%3D%202)-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 [<img align="right" alt="ICES Logo" width="17%" height="17%" src="http://ices.dk/_layouts/15/1033/images/icesimg/iceslogo.png">](http://ices.dk)
