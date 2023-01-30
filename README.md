@@ -24,7 +24,7 @@ icesSAS is implemented as an [R](https://www.r-project.org) package and
 icesSAS can be installed from CRAN using the `install.packages` command:
 
 ``` r
-install.packages("icesSAG")
+install.packages("icesSAS")
 ```
 
 ### Usage
