@@ -57,7 +57,7 @@ there if you encounter problems or have suggestions for future versions.
 
 The current development version can be installed using:
 
-```R
+```r
 install.packages(
   "icesSAS", 
   repos = c('https://ices-tools-prod.r-universe.dev', 'https://cloud.r-project.org')
