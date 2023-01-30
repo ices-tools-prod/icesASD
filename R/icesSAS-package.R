@@ -1,0 +1,34 @@
+#' @docType package
+#'
+#' @name icesSAS-package
+#'
+#' @aliases icesSAS
+#'
+#' @title Stock Advice and Scenarios Database Web Services
+#'
+#' @description
+#' R interface to access the web services of the ICES Stock Advice
+#' and Scenarios database.
+#'
+#' @details
+#' \emph{Get dataset:}
+#' \tabular{ll}{
+#'   \code{\link{getSummaryTable}}             \tab summary results\cr
+#'   \code{\link{getFishStockReferencePoints}} \tab reference points\cr
+#'   \code{\link{getSAG}}                      \tab any data
+#' }
+#' \emph{Look up codes:}
+#' \tabular{ll}{
+#'   \code{\link{findAssessmentKey}}       \tab find assessment key\cr
+#'   \code{\link{getListStocks}} \tab list of stocks
+#' }
+#'
+#' @author Colin Millar, Carlos Pinto, Laura Petre and David Miller.
+#'
+#' @references
+#' ICES Stock Advice and Scenarios database: \url{http://sg.ices.dk}.
+#'
+#' ICES Stock Advice and Scenarios database web services:
+#' \url{http://sg.ices.dk/webservices.aspx}.
+
+NA
