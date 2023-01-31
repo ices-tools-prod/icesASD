@@ -29,5 +29,5 @@ ICES Stock Advice and Scenarios database web services:
 \url{http://sg.ices.dk/webservices.aspx}.
 }
 \author{
-Colin Millar, Carlos Pinto, Laura Petre and David Miller.
+Colin Millar, Luca Lamoni, Carlos Pinto, Laura Petre, David Miller and Neil Maginis.
 }
