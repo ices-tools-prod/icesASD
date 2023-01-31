@@ -23,7 +23,7 @@
 #'   \code{\link{getListStocks}} \tab list of stocks
 #' }
 #'
-#' @author Colin Millar, Carlos Pinto, Laura Petre and David Miller.
+#' @author Colin Millar, Luca Lamoni, Carlos Pinto, Laura Petre, David Miller and Neil Maginis.
 #'
 #' @references
 #' ICES Stock Advice and Scenarios database: \url{http://sg.ices.dk}.

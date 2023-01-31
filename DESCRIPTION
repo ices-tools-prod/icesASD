@@ -2,9 +2,11 @@ Package: icesSAS
 Version: 0.0.1
 Title: Stock Advice and Scenarios Database Web Services
 Authors@R: c(person("Colin", "Millar", role=c("aut","cre"), email="colin.millar@ices.dk"),
+             person("Luca", "Lamoni", role=c("aut")),
              person("Carlos", "Pinto", role=c("aut")),
              person("Laura", "Petre", role=c("aut")),
-             person("David", "Miller", role=c("aut")))
+             person("David", "Miller", role=c("ctb")),
+             person("Neil", "Maginis", role=c("ctb")))
 Suggests: testthat
 Description: R interface to access the web services of the ICES Stock Advice
              and Scenarios database <https://sg.ices.dk>.
