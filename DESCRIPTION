@@ -1,17 +1,18 @@
-Package: icesSAS
+Package: icesASD
 Version: 0.0.1
-Title: Stock Advice and Scenarios Database Web Services
+Title: Advice and Scenarios Database Web Services
 Authors@R: c(person("Colin", "Millar", role=c("aut","cre"), email="colin.millar@ices.dk"),
              person("Luca", "Lamoni", role=c("aut")),
              person("Carlos", "Pinto", role=c("aut")),
              person("Laura", "Petre", role=c("aut")),
              person("David", "Miller", role=c("ctb")),
              person("Neil", "Maginis", role=c("ctb")))
+Imports: httr, icesConnect             
 Suggests: testthat
-Description: R interface to access the web services of the ICES Stock Advice
+Description: R interface to access the web services of the ICES Advice
              and Scenarios database <https://sg.ices.dk>.
 License: GPL (>= 2)
-URL: https://sg.ices.dk, https://github.com/ices-tools-prod/icesSAS
-BugReports: https://github.com/ices-tools-prod/icesSAS/issues
+URL: https://sg.ices.dk, https://github.com/ices-tools-prod/icesASD
+BugReports: https://github.com/ices-tools-prod/icesASD/issues
 RoxygenNote: 7.2.3
 Encoding: UTF-8

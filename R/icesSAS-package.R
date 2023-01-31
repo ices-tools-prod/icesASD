@@ -1,8 +1,8 @@
 #' @docType package
 #'
-#' @name icesSAS-package
+#' @name icesASD-package
 #'
-#' @aliases icesSAS
+#' @aliases icesASD
 #'
 #' @title Stock Advice and Scenarios Database Web Services
 #'
@@ -26,9 +26,9 @@
 #' @author Colin Millar, Luca Lamoni, Carlos Pinto, Laura Petre, David Miller and Neil Maginis.
 #'
 #' @references
-#' ICES Stock Advice and Scenarios database: \url{http://sg.ices.dk}.
+#' ICES Advice and Scenarios database: \url{http://sg.ices.dk}.
 #'
-#' ICES Stock Advice and Scenarios database web services:
+#' ICES Advice and Scenarios database web services:
 #' \url{http://sg.ices.dk/webservices.aspx}.
 
 NA
