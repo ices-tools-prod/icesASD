@@ -13,14 +13,8 @@
 #' @details
 #' \emph{Get dataset:}
 #' \tabular{ll}{
-#'   \code{\link{getSummaryTable}}             \tab summary results\cr
-#'   \code{\link{getFishStockReferencePoints}} \tab reference points\cr
-#'   \code{\link{getSAG}}                      \tab any data
-#' }
-#' \emph{Look up codes:}
-#' \tabular{ll}{
-#'   \code{\link{findAssessmentKey}}       \tab find assessment key\cr
-#'   \code{\link{getListStocks}} \tab list of stocks
+#'   \code{\link{get_advice_view_info}}             \tab Get Advice Record
+#' 
 #' }
 #'
 #' @author Colin Millar, Luca Lamoni, Carlos Pinto, Laura Petre, David Miller and Neil Maginis.
