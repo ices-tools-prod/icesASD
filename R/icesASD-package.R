@@ -13,7 +13,7 @@
 #' @details
 #' \emph{Get dataset:}
 #' \tabular{ll}{
-#'   \code{\link{get_advice_view_info}}             \tab Get Advice Record\n
+#'   \code{\link{get_advice_view_info}}             \tab Get Advice Record\cr
 #'   \code{\link{get_catch_scenario_table}}             \tab Get Advice Catch Scenario Table
 #' 
 #' }

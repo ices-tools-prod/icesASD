@@ -7,7 +7,7 @@ Authors@R: c(person("Colin", "Millar", role=c("aut","cre"), email="colin.millar@
              person("Laura", "Petre", role=c("aut")),
              person("David", "Miller", role=c("ctb")),
              person("Neil", "Maginis", role=c("ctb")))
-Imports: httr, icesConnect, dplyr, jsonlite, rlang, tidyr, tibble          
+Imports: httr, icesConnect, dplyr, jsonlite, rlang, tidyr, tibble, tidyverse          
 Suggests: testthat
 Description: R interface to access the web services of the ICES Advice
              and Scenarios database <https://sg.ices.dk>.

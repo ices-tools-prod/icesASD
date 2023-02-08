@@ -18,7 +18,9 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils URLencode
 #' @importFrom rlang is_empty
-#' @importFrom dplyr filter %>%
+#' @importFrom dplyr filter %>% select
+#' @importFrom tibble add_column
+#' @importFrom tidyr pivot_wider
 #' 
 #' @export
 #' 
