@@ -16,19 +16,19 @@
 #' @references
 #' https://sg.ices.dk/adviceview/AdviceList
 #' 
-#' @importFrom jsonlite fromJSON
-#' @importFrom utils URLencode
+#' @importFrom jsonlite read_json
 #' @importFrom rlang is_empty
 #' @importFrom dplyr filter %>%
 #' 
 #' @export
 #' 
 get_advice_view_info <- function(stock_name, year) {
-  catch_scenario_list <- fromJSON(
-    URLencode(
-      sprintf("https://sg.ices.dk/adviceview/API/getAdviceViewRecord?stockcode=%s&year=%s", stock_name, year)
-    )
-  )
+ 
+  catch_scenario_list <-
+        read_json(
+            api(stock_name = stock_name, year = year, api = "record"),
+            simplifyVector = TRUE
+        )
   
   if (!is_empty(catch_scenario_list)){
   catch_scenario_list <- catch_scenario_list %>% filter(adviceViewPublished == TRUE, adviceStatus == "Advice")

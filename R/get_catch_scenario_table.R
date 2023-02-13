@@ -15,8 +15,7 @@
 #' @references
 #' https://sg.ices.dk/adviceview/AdviceList
 #' 
-#' @importFrom jsonlite fromJSON
-#' @importFrom utils URLencode
+#' @importFrom jsonlite read_json
 #' @importFrom rlang is_empty
 #' @importFrom dplyr filter %>% select
 #' @importFrom tibble add_column
@@ -25,28 +24,28 @@
 #' @export
 #' 
 get_catch_scenario_table <- function(adviceKey, assessmentYear) {
-  catch_scenario_table <- jsonlite::fromJSON(
-    URLencode(
-      sprintf("https://sg.ices.dk/adviceview/API/getCatchScenariosTable/%s", adviceKey)
-    )
-  )
+    catch_scenario_table <-
+        read_json(
+            api(adviceKey = adviceKey, api = "table"),
+            simplifyVector = TRUE
+        )
 
-  if (length(catch_scenario_table) != 0) {
-  catch_scenario_table <- catch_scenario_table %>%
-    pivot_wider(
-      names_from = c(aK_ID, aK_Label, yearLabel, unit, stockDataType),
-      names_glue = "{aK_Label} ({yearLabel}) _{stockDataType}_",
-      values_from = value
-    ) %>%
-    select(-assessmentKey, -adviceKey, -cS_Basis, -aR_ID)
+    if (length(catch_scenario_table) != 0) {
+        catch_scenario_table <- catch_scenario_table %>%
+            pivot_wider(
+                names_from = c(aK_ID, aK_Label, yearLabel, unit, stockDataType),
+                names_glue = "{aK_Label} ({yearLabel}) _{stockDataType}_",
+                values_from = value
+            ) %>%
+            select(-assessmentKey, -adviceKey, -cS_Basis, -aR_ID)
 
 
-  catch_scenario_table <- catch_scenario_table %>% add_column(Year = assessmentYear + 1, .before = "cS_Label")
-  } else {
-    catch_scenario_table <- character(0) 
-  }
+        catch_scenario_table <- catch_scenario_table %>% add_column(Year = assessmentYear + 1, .before = "cS_Label")
+    } else {
+        catch_scenario_table <- character(0)
+    }
 
-  return(catch_scenario_table)
+    return(catch_scenario_table)
 }
 
-utils::globalVariables(c('aK_ID', 'aK_Label','yearLabel','unit','stockDataType','value','assessmentKey','cS_Basis','aR_ID'))
+utils::globalVariables(c("aK_ID", "aK_Label", "yearLabel", "unit", "stockDataType", "value", "assessmentKey", "cS_Basis", "aR_ID"))
