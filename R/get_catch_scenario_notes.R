@@ -14,26 +14,14 @@
 #' @references
 #' https://sg.ices.dk/adviceview/AdviceList
 #' 
-#' @importFrom jsonlite read_json
-#' @importFrom rlang is_empty
-#' @importFrom dplyr filter %>%
-#' 
 #' @export
-#' 
 get_catch_scenario_notes <- function(adviceKey) {
-    catch_scenario_table_notes <-
-        read_json(
-            api(adviceKey = adviceKey, api = "notes"),
-            simplifyVector = TRUE
-        )
+  catch_scenario_table_notes <-
+    getCatchScenariosNotes(adviceKey)
 
-    if (length(catch_scenario_table_notes) != 0) {
-        catch_scenario_table_notes <- catch_scenario_table_notes %>% select(-catchOptionsTableKey)
-    } else {
-        catch_scenario_table_notes <- character(0)
-    }
-
-    return(catch_scenario_table_notes)
+  if (length(catch_scenario_table_notes) == 0) {
+    character(0)
+  } else {
+    catch_scenario_table_notes[, names(catch_scenario_table_notes) %in% "catchOptionsTableKey"]
+  }
 }
-
-utils::globalVariables(c("catchOptionsTableKey"))
