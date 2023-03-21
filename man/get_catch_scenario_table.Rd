@@ -18,7 +18,7 @@ data.frame containing the catch scenarios table for the advice view record
 Returns the catch scenario table for the selected stock and year using the advice view web service.
 }
 \examples{
-\dontrun{
+\donttest{
 get_catch_scenario_table(3056,2022)
 }
 

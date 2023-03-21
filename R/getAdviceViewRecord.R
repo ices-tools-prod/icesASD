@@ -6,7 +6,7 @@
 #' @param year integer value of assessment year
 #' 
 #' @examples 
-#' \rundonttest{
+#' \donttest{
 #' catch_scenario_list <- getAdviceViewRecord()
 #' head(catch_scenario_list, 3)
 #' 

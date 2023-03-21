@@ -7,7 +7,7 @@
 #' @return data.frame containing the catch scenarios table footnotes and their symbols
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' get_catch_scenario_notes(3056)
 #' }
 #'
@@ -16,12 +16,11 @@
 #' 
 #' @export
 get_catch_scenario_notes <- function(adviceKey) {
-  catch_scenario_table_notes <-
-    getCatchScenariosNotes(adviceKey)
+  out <- getCatchScenariosNotes(adviceKey)
 
-  if (length(catch_scenario_table_notes) == 0) {
-    character(0)
-  } else {
-    catch_scenario_table_notes[, names(catch_scenario_table_notes) %in% "catchOptionsTableKey"]
-  }
+  if (length(out) == 0) {
+    return(character(0))
+  } 
+  
+  out[, !names(out) %in% "catchOptionsTableKey"]
 }

@@ -15,7 +15,7 @@ getAdviceViewRecord(stockcode = NULL, year = NULL)
 Get Advice View Record
 }
 \examples{
-\rundonttest{
+\donttest{
 catch_scenario_list <- getAdviceViewRecord()
 head(catch_scenario_list, 3)
 

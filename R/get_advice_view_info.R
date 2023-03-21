@@ -9,23 +9,24 @@
 #'
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' get_advice_view_info("bll.27.3a47de", 2021)
 #' }
 #'
 #' @references
 #' https://sg.ices.dk/adviceview/AdviceList
 #' 
-#' @importFrom rlang is_empty 
-#' 
 #' @export
 get_advice_view_info <- function(stock_name = NULL, year = NULL) {
-  catch_scenario_list <- getAdviceViewRecord(stock_name, year)
+  out <- getAdviceViewRecord(stock_name, year)
   
-  if (length(catch_scenario_list) == 0) {
-    list()
-  } else {
-    filt <- catch_scenario_list$adviceViewPublished == TRUE & catch_scenario_list$adviceStatus == "Advice"
-    catch_scenario_list[filt, ]
+  if (length(out) == 0) {
+    return(list())
   }
+  
+  filt <-
+    out$adviceViewPublished == TRUE &
+    out$adviceStatus == "Advice"
+  
+  out[filt, ]
 }

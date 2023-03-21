@@ -16,7 +16,7 @@ data.frame containing the catch scenarios table footnotes and their symbols
 Returns a data.frame containing the catch scenario table's footnotes. It uses an ASD dedicated web-service.
 }
 \examples{
-\dontrun{
+\donttest{
 get_catch_scenario_notes(3056)
 }
 

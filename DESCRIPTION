@@ -7,10 +7,10 @@ Authors@R: c(person("Colin", "Millar", role=c("aut"), email="colin.millar@ices.d
              person("Laura", "Petre", role=c("aut")),
              person("David", "Miller", role=c("ctb")),
              person("Neil", "Maginis", role=c("ctb")))
-Imports: httr, icesConnect, dplyr, jsonlite, rlang, tidyr, tibble, tidyverse          
-Suggests: testthat
+Imports: icesConnect, glue, httr, tidyr
+Suggests: icesSAG
 Description: R interface to access the web services of the ICES Advice
-             and Scenarios database <https://sg.ices.dk>.
+             and Scenarios database <https://sg.ices.dk/adviceview/AdviceList>.
 License: GPL (>= 2)
 URL: https://sg.ices.dk, https://github.com/ices-tools-prod/icesASD
 BugReports: https://github.com/ices-tools-prod/icesASD/issues

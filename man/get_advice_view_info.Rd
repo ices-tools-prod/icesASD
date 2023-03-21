@@ -18,7 +18,7 @@ data.frame containing metadata for the advice view record
 Returns a df with the metadata for the advice view record for a specific stock and year. It uses the advice view web-service.
 }
 \examples{
-\dontrun{
+\donttest{
 get_advice_view_info("bll.27.3a47de", 2021)
 }
 

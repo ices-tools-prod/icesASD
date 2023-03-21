@@ -5,7 +5,7 @@
 #' @param adviceKey advice view id
 #' 
 #' @examples 
-#' \rundonttest{
+#' \donttest{
 #' catch_scenario_notes <- getCatchScenariosNotes(2814)
 #' }
 #' 

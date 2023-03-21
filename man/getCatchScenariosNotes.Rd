@@ -13,7 +13,7 @@ getCatchScenariosNotes(adviceKey)
 Get Catch Scenarios Notes for a given record
 }
 \examples{
-\rundonttest{
+\donttest{
 catch_scenario_notes <- getCatchScenariosNotes(2814)
 }
 
