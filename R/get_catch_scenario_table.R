@@ -8,44 +8,38 @@
 #' @return data.frame containing the catch scenarios table for the advice view record
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' get_catch_scenario_table(3056,2022)
 #' }
 #'
 #' @references
 #' https://sg.ices.dk/adviceview/AdviceList
 #' 
-#' @importFrom jsonlite read_json
-#' @importFrom rlang is_empty
-#' @importFrom dplyr filter %>% select
-#' @importFrom tibble add_column
 #' @importFrom tidyr pivot_wider
 #' 
 #' @export
 #' 
 get_catch_scenario_table <- function(adviceKey, assessmentYear) {
-    catch_scenario_table <-
-        read_json(
-            api(adviceKey = adviceKey, api = "table"),
-            simplifyVector = TRUE
-        )
+  out <- getCatchScenariosTable(adviceKey)
 
-    if (length(catch_scenario_table) != 0) {
-        catch_scenario_table <- catch_scenario_table %>%
-            pivot_wider(
-                names_from = c(aK_ID, aK_Label, yearLabel, unit, stockDataType),
-                names_glue = "{aK_Label} ({yearLabel}) _{stockDataType}_",
-                values_from = value
-            ) %>%
-            select(-assessmentKey, -adviceKey, -cS_Basis, -aR_ID)
+  if (length(out) == 0) {
+    return(character(0))
+  }
 
-
-        catch_scenario_table <- catch_scenario_table %>% add_column(Year = assessmentYear + 1, .before = "cS_Label")
-    } else {
-        catch_scenario_table <- character(0)
-    }
-
-    return(catch_scenario_table)
+  out <-
+    pivot_wider(
+      out,
+      names_from = c(aK_ID, aK_Label, yearLabel, unit, stockDataType),
+      names_glue = "{aK_Label} ({yearLabel}) _{stockDataType}_",
+      values_from = value
+    )
+  
+  out <-
+    out[
+      !names(out) %in% c("assessmentKey", "adviceKey", "cS_Basis", "aR_ID")
+    ]
+  
+  cbind(Year = assessmentYear + 1, out)
 }
 
-utils::globalVariables(c("aK_ID", "aK_Label", "yearLabel", "unit", "stockDataType", "value", "assessmentKey", "cS_Basis", "aR_ID"))
+utils::globalVariables(c("aK_ID", "aK_Label", "yearLabel", "unit", "stockDataType", "value"))
