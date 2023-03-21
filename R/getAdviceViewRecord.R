@@ -2,14 +2,20 @@
 #'
 #' Get Advice View Record
 #'
+#' @param stockcode string value of the stock code you wish to look
+#' @param year integer value of assessment year
+#' 
 #' @examples 
 #' \rundonttest{
 #' catch_scenario_list <- getAdviceViewRecord()
 #' head(catch_scenario_list, 3)
+#' 
+#' getAdviceViewRecord("bll.27.3a47de", 2021)
 #' }
+#' 
 #' @export
-getAdviceViewRecord <- function() {
+getAdviceViewRecord <- function(stockcode = NULL, year = NULL) {
   ices_get(
-    asd_api("getAdviceViewRecord")
+    asd_api("getAdviceViewRecord", stockcode = stockcode, year = year)
   )
 }

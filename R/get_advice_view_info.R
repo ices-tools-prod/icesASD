@@ -16,27 +16,16 @@
 #' @references
 #' https://sg.ices.dk/adviceview/AdviceList
 #' 
-#' @importFrom jsonlite read_json
-#' @importFrom rlang is_empty
-#' @importFrom dplyr filter %>%
+#' @importFrom rlang is_empty 
 #' 
 #' @export
-#' 
-get_advice_view_info <- function(stock_name, year) {
- 
-  catch_scenario_list <-
-        read_json(
-            api(stock_name = stock_name, year = year, api = "record"),
-            simplifyVector = TRUE
-        )
+get_advice_view_info <- function(stock_name = NULL, year = NULL) {
+  catch_scenario_list <- getAdviceViewRecord(stock_name, year)
   
-  if (!is_empty(catch_scenario_list)){
-  catch_scenario_list <- catch_scenario_list %>% filter(adviceViewPublished == TRUE, adviceStatus == "Advice")
+  if (length(catch_scenario_list) == 0) {
+    list()
   } else {
-     catch_scenario_list <- list()
+    filt <- catch_scenario_list$adviceViewPublished == TRUE & catch_scenario_list$adviceStatus == "Advice"
+    catch_scenario_list[filt, ]
   }
-  
-  return(catch_scenario_list)
 }
-
-utils::globalVariables(c('adviceViewPublished', 'adviceStatus'))

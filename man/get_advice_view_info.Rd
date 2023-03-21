@@ -4,7 +4,7 @@
 \alias{get_advice_view_info}
 \title{Get Advice Record}
 \usage{
-get_advice_view_info(stock_name, year)
+get_advice_view_info(stock_name = NULL, year = NULL)
 }
 \arguments{
 \item{stock_name}{string value of the stock code you wish to look}
