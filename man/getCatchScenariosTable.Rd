@@ -7,7 +7,7 @@
 getCatchScenariosTable(adviceKey)
 }
 \arguments{
-\item{adviceKey}{advice view id}
+\item{adviceKey}{advice view id(s)}
 }
 \description{
 Get Catch Scenarios Table for a given record
@@ -15,6 +15,7 @@ Get Catch Scenarios Table for a given record
 \examples{
 \donttest{
 catch_scenario_table <- getCatchScenariosTable(2814)
+catch_scenario_tables <- getCatchScenariosTable(c(2814, 2815))
 }
 
 }

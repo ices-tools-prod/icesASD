@@ -7,14 +7,15 @@
 getCatchScenariosNotes(adviceKey)
 }
 \arguments{
-\item{adviceKey}{advice view id}
+\item{adviceKey}{advice view id(s)}
 }
 \description{
 Get Catch Scenarios Notes for a given record
 }
 \examples{
 \donttest{
-catch_scenario_notes <- getCatchScenariosNotes(2814)
+catch_scenario_note <- getCatchScenariosNotes(2814)
+catch_scenario_notes <- getCatchScenariosNotes(c(2814, 2815))
 }
 
 }

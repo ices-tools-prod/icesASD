@@ -28,5 +28,6 @@ adviceDownload <- function(adviceKeys, dir = ".") {
   writeBin(content(ret), file.path(dir, filename))
   
   message(glue("Zip file: {filename}, downloaded to: {dir}"))
-  invisible()
+  
+  invisible(file.path(dir, filename))
 }
