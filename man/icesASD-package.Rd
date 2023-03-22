@@ -12,9 +12,9 @@ and Scenarios database.
 \details{
 \emph{Get dataset:}
 \tabular{ll}{
-  \code{\link{get_advice_view_info}}             \tab Get Advice Record\cr
-  \code{\link{get_catch_scenario_table}}             \tab Get Advice Catch Scenario Table\cr
- \code{\link{get_catch_scenario_notes}}             \tab Get Advice Catch Scenario Table Footnotes
+  \code{\link{getAdviceViewRecord}}             \tab Get Advice Record\cr
+  \code{\link{getCatchScenariosTable}}             \tab Get Advice Catch Scenario Table\cr
+ \code{\link{getCatchScenariosNotes}}             \tab Get Advice Catch Scenario Table Footnotes
 
 }
 }
