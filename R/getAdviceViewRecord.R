@@ -4,13 +4,14 @@
 #'
 #' @param stockcode string value of the stock code you wish to look
 #' @param year integer value of assessment year
+#' @param assessmentkey integer value of assessment year
 #' 
 #' @examples 
 #' \donttest{
 #' catch_scenario_list <- getAdviceViewRecord()
 #' head(catch_scenario_list, 3)
 #' 
-#' getAdviceViewRecord("bll.27.3a47de", 2021)
+#' getAdviceViewRecord("bll.27.3a47de", 2021, 15609)
 #' }
 #' 
 #' @export

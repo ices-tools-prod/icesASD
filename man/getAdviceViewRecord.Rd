@@ -4,12 +4,14 @@
 \alias{getAdviceViewRecord}
 \title{Get Advice View Record}
 \usage{
-getAdviceViewRecord(stockcode = NULL, year = NULL)
+getAdviceViewRecord(stockcode = NULL, year = NULL, assessmentkey = NULL)
 }
 \arguments{
 \item{stockcode}{string value of the stock code you wish to look}
 
 \item{year}{integer value of assessment year}
+
+\item{assessmentkey}{integer value of assessment year}
 }
 \description{
 Get Advice View Record
@@ -19,7 +21,7 @@ Get Advice View Record
 catch_scenario_list <- getAdviceViewRecord()
 head(catch_scenario_list, 3)
 
-getAdviceViewRecord("bll.27.3a47de", 2021)
+getAdviceViewRecord("bll.27.3a47de", 2021, 15609)
 }
 
 }
