@@ -14,8 +14,8 @@
 #' }
 #' 
 #' @export
-getAdviceViewRecord <- function(stockcode = NULL, year = NULL) {
+getAdviceViewRecord <- function(stockcode = NULL, year = NULL, assessmentkey = NULL) {
   ices_get(
-    asd_api("getAdviceViewRecord", stockcode = stockcode, year = year)
+    asd_api("getAdviceViewRecord", stockcode = stockcode, year = year, assessmentkey = assessmentkey)
   )
 }
