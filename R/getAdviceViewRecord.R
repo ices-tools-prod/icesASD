@@ -4,7 +4,7 @@
 #'
 #' @param stockcode string value of the stock code you wish to look
 #' @param year integer value of assessment year
-#' @param assessmentkey integer value of assessment year
+#' @param assessmentkey integer value of SAG assessmentKey
 #' 
 #' @examples 
 #' \donttest{
