@@ -4,14 +4,14 @@
 \alias{getAdviceViewRecord}
 \title{Get Advice View Record}
 \usage{
-getAdviceViewRecord(stockcode = NULL, year = NULL, assessmentkey = NULL)
+getAdviceViewRecord(stockcode = NULL, year = NULL, assessmentKey = NULL)
 }
 \arguments{
 \item{stockcode}{string value of the stock code you wish to look}
 
 \item{year}{integer value of assessment year}
 
-\item{assessmentkey}{integer value of assessment year}
+\item{assessmentKey}{integer value of SAG assessmentKey}
 }
 \description{
 Get Advice View Record

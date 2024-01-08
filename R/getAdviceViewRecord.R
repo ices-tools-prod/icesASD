@@ -4,7 +4,7 @@
 #'
 #' @param stockcode string value of the stock code you wish to look
 #' @param year integer value of assessment year
-#' @param assessmentkey integer value of SAG assessmentKey
+#' @param assessmentKey integer value of SAG assessmentKey
 #' 
 #' @examples 
 #' \donttest{
@@ -15,8 +15,8 @@
 #' }
 #' 
 #' @export
-getAdviceViewRecord <- function(stockcode = NULL, year = NULL, assessmentkey = NULL) {
+getAdviceViewRecord <- function(stockcode = NULL, year = NULL, assessmentKey = NULL) {
   ices_get(
-    asd_api("getAdviceViewRecord", stockcode = stockcode, year = year, assessmentkey = assessmentkey)
+    asd_api("getAdviceViewRecord", stockcode = stockcode, year = year, assessmentKey = assessmentKey)
   )
 }
