@@ -1,5 +1,3 @@
-#' @docType package
-#'
 #' @name icesASD-package
 #'
 #' @aliases icesASD
@@ -16,7 +14,7 @@
 #'   \code{\link{getAdviceViewRecord}}             \tab Get Advice Record\cr
 #'   \code{\link{getCatchScenariosTable}}             \tab Get Advice Catch Scenario Table\cr
 #'  \code{\link{getCatchScenariosNotes}}             \tab Get Advice Catch Scenario Table Footnotes
-#' 
+#'
 #' }
 #'
 #' @author Colin Millar, Luca Lamoni, Carlos Pinto, Laura Petre, David Miller and Neil Maginis.
