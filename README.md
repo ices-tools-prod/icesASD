@@ -27,6 +27,12 @@ icesASD can be installed from CRAN using the `install.packages` command:
 install.packages("icesASD")
 ```
 
+or using:
+
+``` r
+install.packages('icesASD', repos = 'https://ices-tools-prod.r-universe.dev')
+```
+
 ### Usage
 
 For a summary of the package:
