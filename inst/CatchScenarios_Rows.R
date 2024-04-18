@@ -1,0 +1,9 @@
+structure(list(purpose = c("OtherScenarios", "OtherScenarios",
+"OtherScenarios", "OtherScenarios", "OtherScenarios", "OtherScenarios",
+"OtherScenarios", "OtherScenarios", "OtherScenarios", "OtherScenarios"
+), basis = c("Other", "Other", "Other", "Other", "Other", "Other",
+"Other", "Other", "Other", "Other"), label = c("F = 0", "F = F2023",
+"Fpa", "Flim", "SSB2025 = Bpa", "SSB2025 = Blim", "SSB2025 = MSY Btrigger",
+"MSY approach with Fages 0-1 = 0.05 target ##", "MSY approach with C-fleet catches and C- and D-fleet TAC transfer ####",
+"MSY approach with C- and D-fleet catches and no C- and D-fleet TAC transfer ####"
+)), class = "data.frame", row.names = c(NA, -10L))
