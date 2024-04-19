@@ -8,7 +8,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' check_table(col, rows, vals)
+#' checkTable(col, rows, vals)
 #' }
 #'
 #' @importFrom reactable
