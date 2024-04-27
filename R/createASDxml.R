@@ -1,4 +1,20 @@
 
+#' Create the XML format for catch scenario data
+#'
+#' Create the XML format for catch scenario data
+#'
+#' @param info details
+#' @param scenarioColumns details
+#' @param scenarioRows details
+#' @param scenarioValues details
+#' @param scenarioNotes details
+#'
+#' @examples
+#' \dontrun{
+#' checkTable(col, rows, vals)
+#' }
+#'
+#' @importFrom reactable reactable colDef
 #' @export
 createASDxml <-
   function(info, scenarioColumns, scenarioRows, scenarioValues, scenarioNotes) {

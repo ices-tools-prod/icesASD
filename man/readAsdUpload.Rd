@@ -15,8 +15,8 @@ readAsdUpload(filename, format = FALSE)
 Read a file in the ASD upload format, returning a list of metadata and data.frame
 }
 \examples{
-filename <- system.file("CatchScenarios_AdviceKey_3207.xml", package = "icesASD")
-asd <- readAsdUpload(filename)
+#filename <- system.file("CatchScenarios_AdviceKey_3207.xml", package = "icesASD")
+#asd <- readAsdUpload(filename)
 
 
 }

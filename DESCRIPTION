@@ -7,7 +7,7 @@ Authors@R: c(person("Colin", "Millar", role=c("aut", "cre"), email="colin.millar
              person("Laura", "Petre", role=c("aut")),
              person("David", "Miller", role=c("ctb")),
              person("Neil", "Maginis", role=c("ctb")))
-Imports: icesConnect, glue, httr, tidyr, jsonlite, xml2
+Imports: icesConnect, glue, httr, tidyr, jsonlite, xml2, reactable
 Description: R interface to access the web services of the ICES Advice
              and Scenarios database <https://asd.ices.dk/AdviceList>.
 License: GPL (>= 2)

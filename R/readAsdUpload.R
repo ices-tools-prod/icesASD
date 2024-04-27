@@ -6,8 +6,8 @@
 #' @param format should the output be formatted into an easy to read table
 #'
 #' @examples
-#' filename <- system.file("CatchScenarios_AdviceKey_3207.xml", package = "icesASD")
-#' asd <- readAsdUpload(filename)
+#' #filename <- system.file("CatchScenarios_AdviceKey_3207.xml", package = "icesASD")
+#' #asd <- readAsdUpload(filename)
 #'
 #'
 #' @export

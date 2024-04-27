@@ -11,7 +11,7 @@
 #' checkTable(col, rows, vals)
 #' }
 #'
-#' @importFrom reactable
+#' @importFrom reactable reactable colDef
 #' @export
 checkTable <- function(columns, rows, values) {
   names(values$value) <- paste0(columns$value$name, " ", "[", columns$value$year, "]", " (", columns$value$units, ")")

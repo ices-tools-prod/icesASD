@@ -9,7 +9,7 @@
 #' checkNotes(notes)
 #' }
 #'
-#' @importFrom reactable
+#' @importFrom reactable reactable colDef
 #' @export
 checkNotes <- function(notes) {
   notes <- notes$value
