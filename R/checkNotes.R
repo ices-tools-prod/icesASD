@@ -6,13 +6,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' checkNotes(notes)
+#' data(scenarioNotes)
+#' checkNotes(scenarioNotes)
 #' }
 #'
 #' @importFrom reactable reactable colDef
 #' @export
 checkNotes <- function(notes) {
-  notes <- notes$value
   rownames(notes) <- NULL
   reactable(notes,
     defaultPageSize = 30,

@@ -17,8 +17,9 @@ checkTable(columns, rows, values)
 Check catch scenario table in a browser
 }
 \examples{
-\dontrun{
-checkTable(col, rows, vals)
-}
+data(scenarioColumns)
+data(scenarioRows)
+data(scenarioValues)
+checkTable(scenarioColumns, scenarioRows, scenarioValues)
 
 }

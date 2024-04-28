@@ -7,15 +7,19 @@
 #' @param values df of values element of catch scenario table
 #'
 #' @examples
-#' \dontrun{
-#' checkTable(col, rows, vals)
-#' }
+#' data(scenarioColumns)
+#' data(scenarioRows)
+#' data(scenarioValues)
+#' checkTable(scenarioColumns, scenarioRows, scenarioValues)
 #'
 #' @importFrom reactable reactable colDef
 #' @export
 checkTable <- function(columns, rows, values) {
-  names(values$value) <- paste0(columns$value$name, " ", "[", columns$value$year, "]", " (", columns$value$units, ")")
-  table <- cbind(rows$value, values$value)
+  names(values) <-
+    paste0(columns$AK_Label, " ", "[", columns$YearLabel, "]", " (", columns$Unit, ")")
+  names(rows) <- c("purpose", "basis", "label")
+
+  table <- cbind(rows, values)
   rownames(table) <- NULL
 
   reactable(table,

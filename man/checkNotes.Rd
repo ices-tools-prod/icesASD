@@ -14,7 +14,8 @@ Check catch scenario notes in a browser
 }
 \examples{
 \dontrun{
-checkNotes(notes)
+data(scenarioNotes)
+checkNotes(scenarioNotes)
 }
 
 }
