@@ -31,49 +31,74 @@
 #'
 #' @examples
 #' \dontrun{
-#' summary <- getSAG("had.27.46a20", 2022)
-#' refpts <- getSAG("had.27.46a20", 2022, "refpts")
-#'
-#' cod_summary <- getSAG("cod", 2022)
-#' cod_refpts <- getSAG("cod", 2015:2016, "refpts")
-#' cod_data <- getSAG("cod", 2017, "source-data")
+#' # Example usage
+#' getASD(stock = "cod.27.7e-k", year = 2023, outputData = "record")
+#' # Example usage with assessmentKey
+#' getASD(assessmentKey = 18719, outputData = "table") 
 #' }
 #' @export
 
-getASD <- function(stock, year, assessmentKey = NULL, data = "table", combine = TRUE, purpose = "Advice") {
-  # select web service operation
-  data <- match.arg(data, c("table", "record", "notes"))
-  service <- switch(data,
-                    table = "getCatchScenariosTable",
-                    record = "getAdviceViewRecord",
-                    notes = "getCatchScenariosNotes")
+getASD <- function(stock = NULL, year = NULL, assessmentKey = NULL,
+                   outputData = "table", combine = TRUE, purpose = "Advice") {
+  # Validate outputData argument
+  outputData <- match.arg(outputData, c("table", "record", "notes"))
 
-  # find lookup key
-  assessmentKey <- findAssessmentKey(stock, year, regex = TRUE, full = TRUE)
-  assessmentKey <- assessmentKey[assessmentKey$Purpose == purpose, "AssessmentKey"]
+  # Select web service operation
+  service <- switch(outputData,
+    table = "getCatchScenariosTable",
+    record = "getAdviceViewRecord",
+    notes = "getCatchScenariosNotes"
+  )
 
-  # get data requested by user
-  do.call(service, list(assessmentKey = assessmentKey))
-}
-
-out <- getCatchScenariosTable(adviceKey)
-
-  if (length(out) == 0) {
-    return(character(0))
+  if (is.null(assessmentKey)) {
+    # Find lookup key
+    assessmentKey <- findAssessmentKey(stock, year, regex = TRUE, full = TRUE)
+    assessmentKey <- assessmentKey[assessmentKey$Purpose == purpose, "AssessmentKey"]
   }
 
-  out <-
-    pivot_wider(
+  if (outputData == "record") {
+    # Get advice view record
+    out <- do.call(service, list(assessmentKey = assessmentKey))
+    return(out)
+
+  } else if (outputData == "notes") {
+    # Get catch scenario notes
+    stockRecord <- do.call("getAdviceViewRecord", list(assessmentKey = assessmentKey))
+    # out <- getCatchScenariosTable(stockRecord$adviceKey)
+    out <- do.call(service, list(adviceKey = stockRecord$adviceKey))
+    return(out)
+
+  } else if (outputData == "table") {
+    stockRecord <- do.call("getAdviceViewRecord", list(assessmentKey = assessmentKey))
+    # out <- getCatchScenariosTable(stockRecord$adviceKey)
+    out <- do.call(service, list(adviceKey = stockRecord$adviceKey))
+
+    if (length(out) == 0) {
+      return(character(0))
+    }
+
+    # Build column name like: "{aK_Label} ({yearLabel},{unit}) _{stockDataType}_"
+    out$colname <- paste0(out$aK_Label, " (", out$yearLabel,",", out$unit, ") _", out$stockDataType, "_")
+
+    # Reshape using base R (wide format), using cS_Label as ID
+    out_wide <- reshape(
       out,
-      names_from = c(aK_ID, aK_Label, yearLabel, unit, stockDataType),
-      names_glue = "{aK_Label} ({yearLabel}) _{stockDataType}_",
-      values_from = value
+      idvar = c("cS_Label","cS_Purpose"),
+      timevar = "colname",
+      direction = "wide",
+      drop = c(
+        "assessmentKey", "adviceKey", "cS_Basis", "aR_ID",
+        "aK_ID", "aK_Label",  "yearLabel", "unit", "stockDataType"
+      )
     )
-  
-  out <-
-    out[
-      !names(out) %in% c("assessmentKey", "adviceKey", "cS_Basis", "aR_ID")
-    ]
-  
-  cbind(Year = assessmentYear + 1, out)
+
+    # Clean column names
+    names(out_wide) <- sub("^value\\.", "", names(out_wide))
+
+    # Add Year column (assuming year provided)
+    # assessmentYear <- as.integer(year)
+    # out <- cbind(Year = assessmentYear + 1, Scenario = rownames(out_wide), out_wide)
+    rownames(out_wide) <- NULL
+    return(out_wide)
+  }
 }
