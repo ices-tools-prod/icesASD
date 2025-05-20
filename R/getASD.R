@@ -8,8 +8,8 @@
 #' @param stock a stock name, e.g. cod-347d, or cod to find all cod stocks, or
 #'        NULL to process all stocks.
 #' @param year the assessment year, e.g. 2015, or 0 to process all years.
-#' @param data the data of interest, either "summary", "refpts" or "source".
-#' @param combine whether to combine the list output to a data frame.
+#' @param assessmentKey the assessmentKey of the stock of interest.
+#' @param outputData the data you want to retrieve, either "table", "record", or "notes".
 #' @param purpose the purpose of the entry, options are "Advice", "Bench",
 #'                "InitAdvice", default is "Advice".
 #'
@@ -18,16 +18,13 @@
 #' @return A data frame (default) or a list if \code{combine} is \code{TRUE}.
 #'
 #' @seealso
-#' \code{\link{getListStocks}}, \code{\link{getSummaryTable}},
-#'   \code{\link{getFishStockReferencePoints}}, and
-#'   \code{\link{getStockDownloadData}} get a list of stocks, summary
-#'   results, reference points, and all data including custom columns.
+#' \code{\link{getListStocks}}
 #'
 #' \code{\link{findAssessmentKey}} finds lookup keys.
 #'
 #' \code{\link{icesSAG-package}} gives an overview of the package.
 #'
-#' @author Colin Millar.
+#' @author Luca Lamoni.
 #'
 #' @examples
 #' \dontrun{
@@ -39,7 +36,7 @@
 #' @export
 
 getASD <- function(stock = NULL, year = NULL, assessmentKey = NULL,
-                   outputData = "table", combine = TRUE, purpose = "Advice") {
+                   outputData = "table", purpose = "Advice") {
   # Validate outputData argument
   outputData <- match.arg(outputData, c("table", "record", "notes"))
 
@@ -51,7 +48,7 @@ getASD <- function(stock = NULL, year = NULL, assessmentKey = NULL,
   )
 
   if (is.null(assessmentKey)) {
-    # Find lookup key
+    # Find assessmentKey key
     assessmentKey <- findAssessmentKey(stock, year, regex = TRUE, full = TRUE)
     assessmentKey <- assessmentKey[assessmentKey$Purpose == purpose, "AssessmentKey"]
   }
@@ -77,7 +74,7 @@ getASD <- function(stock = NULL, year = NULL, assessmentKey = NULL,
       return(character(0))
     }
 
-    # Build column name like: "{aK_Label} ({yearLabel},{unit}) _{stockDataType}_"
+    # Build column name like: "{aK_Label} ({yearLabel}, {unit}) _{stockDataType}_"
     out$colname <- paste0(out$aK_Label, " (", out$yearLabel,",", out$unit, ") _", out$stockDataType, "_")
 
     # Reshape using base R (wide format), using cS_Label as ID
@@ -94,10 +91,6 @@ getASD <- function(stock = NULL, year = NULL, assessmentKey = NULL,
 
     # Clean column names
     names(out_wide) <- sub("^value\\.", "", names(out_wide))
-
-    # Add Year column (assuming year provided)
-    # assessmentYear <- as.integer(year)
-    # out <- cbind(Year = assessmentYear + 1, Scenario = rownames(out_wide), out_wide)
     rownames(out_wide) <- NULL
     return(out_wide)
   }
