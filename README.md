@@ -33,6 +33,13 @@ or using:
 install.packages('icesASD', repos = 'https://ices-tools-prod.r-universe.dev')
 ```
 
+or get the development version
+
+``` r
+library(remotes)
+remotes::install_github("https://github.com/ices-tools-prod/icesASD")
+``` 
+
 ### Usage
 
 For a summary of the package:
