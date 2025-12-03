@@ -1,5 +1,5 @@
 Package: icesASD
-Version: 0.0.1
+Version: 0.0.2
 Title: Advice and Scenarios Database Web Services
 Authors@R: c(person("Colin", "Millar", role=c("aut", "cre"), email="colin.millar@ices.dk"),
              person("Luca", "Lamoni", role=c("aut"), email="luca.lamoni@ices.dk"),
