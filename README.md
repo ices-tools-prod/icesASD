@@ -12,7 +12,7 @@ package](http://www.r-pkg.org/badges/version/icesASD)](https://CRAN.R-project.or
 
 icesASD provides R functions that access the [web
 services](http://sg.ices.dk/webservices.aspx) of the
-[ICES](http://ices.dk) [Advice and Scenarios](http://sg.ices.dk)
+[ICES](http://ices.dk) [Advice and Scenarios](http://asd.ices.dk)
 database.
 
 icesASD is implemented as an [R](https://www.r-project.org) package and
@@ -30,7 +30,7 @@ install.packages("icesASD")
 or using:
 
 ``` r
-install.packages('icesASD', repos = 'https://ices-tools-prod.r-universe.dev')
+install.packages('icesASD', repos = c('https://ices-tools-prod.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
 ### Usage
@@ -61,8 +61,5 @@ encounter problems or have suggestions for future versions.
 The current development version can be installed using:
 
 ``` r
-install.packages(
-  "icesASD", 
-  repos = c('https://ices-tools-prod.r-universe.dev', 'https://cloud.r-project.org')
-)
+remotes::install_github("ices-tools-prod/icesASD")
 ```
