@@ -15,5 +15,5 @@ Description: R interface to access the web services of the ICES Advice
 License: GPL (>= 2)
 URL: https://asd.ices.dk/AdviceList, https://github.com/ices-tools-prod/icesASD
 BugReports: https://github.com/ices-tools-prod/icesASD/issues
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.3
 Encoding: UTF-8

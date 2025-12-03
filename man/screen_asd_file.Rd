@@ -21,11 +21,3 @@ and the file will have to be part of the body of the call. The user
 needs to be authenticated in order to call this service.
 This file can be later pushed to the database by the same user.
 }
-\examples{
-\dontrun{
-# requires authorization
-filename <- system.file("test_files/vms_test.csv", package = "icesVMS")
-screen_vms_file(filename)
-}
-
-}

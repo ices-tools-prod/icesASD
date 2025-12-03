@@ -38,6 +38,4 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-icesSAS_icesSAG.code-workspace
-
 worksheet.R
