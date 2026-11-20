@@ -39,4 +39,16 @@ readAsdUpload <- function(filename, format = FALSE) {
   if (!format) {
     return(sections)
   }
+
+  # one row per scenario, one column per catch scenario column
+  cols <- as.data.frame(sections$Scenarios_Columns, stringsAsFactors = FALSE)
+  rows <- as.data.frame(sections$Scenarios_Rows, stringsAsFactors = FALSE)
+  vals <- as.data.frame(sections$Scenarios_Values, stringsAsFactors = FALSE)
+  tab <- matrix(NA_real_, nrow(rows), nrow(cols),
+    dimnames = list(trimws(rows$AR_ID), trimws(cols$AK_ID))
+  )
+  tab[cbind(trimws(vals$AR_ID), trimws(vals$AK_ID))] <- as.numeric(vals$Value)
+  out <- cbind(rows[c("CS_Purpose", "CS_Basis", "CS_Label")], tab, row.names = NULL)
+  names(out)[-(1:3)] <- paste0(cols$AK_Label, " [", cols$YearLabel, "] (", cols$Unit, ")")
+  out
 }
